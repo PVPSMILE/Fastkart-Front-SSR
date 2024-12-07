@@ -1,0 +1,103 @@
+     src/
+├── app/
+│   ├── admin/                       // Админская часть
+│   │   ├── admin-layout/            // Общий layout для админки
+│   │   │   ├── admin-layout.component.ts
+│   │   │   ├── admin-layout.component.html
+│   │   │   └── admin-layout.component.scss
+│   │   ├── login/                   // Страница логина
+│   │   │   ├── login.component.ts
+│   │   │   ├── login.component.html
+│   │   │   └── login.component.scss
+│   │   ├── dashboard/               // Дэшборд
+│   │   │   ├── dashboard.component.ts
+│   │   │   ├── dashboard.component.html
+│   │   │   └── dashboard.component.scss
+│   │   ├── products/                // Управление товарами
+│   │   │   ├── product-list/        // Список товаров
+│   │   │   │   ├── product-list.component.ts
+│   │   │   │   ├── product-list.component.html
+│   │   │   │   └── product-list.component.scss
+│   │   │   ├── add-product/         // Добавление товара
+│   │   │   │   ├── add-product.component.ts
+│   │   │   │   ├── add-product.component.html
+│   │   │   │   └── add-product.component.scss
+│   │   │   ├── edit-product/        // Редактирование товара
+│   │   │       ├── edit-product.component.ts
+│   │   │       ├── edit-product.component.html
+│   │   │       └── edit-product.component.scss
+│   │   ├── categories/              // Управление категориями
+│   │   │   ├── categories.component.ts
+│   │   │   ├── categories.component.html
+│   │   │   └── categories.component.scss
+│   │   ├── admin.routes.ts          // Маршруты админки
+│   │   └── logout/                  // Логаут
+│   │       ├── logout.component.ts
+│   │       ├── logout.component.html
+│   │       └── logout.component.scss
+│   ├── main-page/                   // Основное приложение
+│   │   ├── main-layout/             // Общий layout для пользователя
+│   │   │   ├── main-layout.component.ts
+│   │   │   ├── main-layout.component.html
+│   │   │   └── main-layout.component.scss
+│   │   ├── home/                    // Главная страница
+│   │   │   ├── home.component.ts
+│   │   │   ├── home.component.html
+│   │   │   └── home.component.scss
+│   │   ├── shop/                    // Магазин
+│   │   │   ├── categories/          // Категории
+│   │   │   │   ├── categories.component.ts
+│   │   │   │   ├── categories.component.html
+│   │   │   │   └── categories.component.scss
+│   │   │   ├── products/            // Продукты в категории
+│   │   │   │   ├── products.component.ts
+│   │   │   │   ├── products.component.html
+│   │   │   │   └── products.component.scss
+│   │   │   ├── product-detail/      // Карточка товара
+│   │   │       ├── product-detail.component.ts
+│   │   │       ├── product-detail.component.html
+│   │   │       └── product-detail.component.scss
+│   │   ├── cart-page/               // Корзина
+│   │   │   ├── cart-page.component.ts
+│   │   │   ├── cart-page.component.html
+│   │   │   └── cart-page.component.scss
+│   │   ├── checkout/                // Оформление заказа
+│   │   │   ├── checkout.component.ts
+│   │   │   ├── checkout.component.html
+│   │   │   └── checkout.component.scss
+│   │   ├── about/                   // О нас
+│   │   │   ├── about.component.ts
+│   │   │   ├── about.component.html
+│   │   │   └── about.component.scss
+│   │   ├── contact/                 // Контакты
+│   │       ├── contact.component.ts
+│   │       ├── contact.component.html
+│   │       └── contact.component.scss
+│   ├── shared/                      // Общие компоненты, директивы и утилиты
+│   │   ├── components/
+│   │   │   ├── header/
+│   │   │   │   ├── header.component.ts
+│   │   │   │   ├── header.component.html
+│   │   │   │   └── header.component.scss
+│   │   │   ├── footer/
+│   │   │       ├── footer.component.ts
+│   │   │       ├── footer.component.html
+│   │   │       └── footer.component.scss
+│   │   ├── directives/
+│   │   │   └── hover-highlight.directive.ts
+│   │   ├── pipes/
+│   │   │   └── currency-format.pipe.ts
+│   │   └── services/
+│   │       ├── auth.service.ts
+│   │       ├── product.service.ts
+│   │       ├── category.service.ts
+│   │       └── cart.service.ts
+│   ├── app.config.ts                // Конфигурация приложения
+│   ├── app.component.ts             // Корневой компонент
+│   ├── app.routes.ts                // Основные маршруты
+│   └── app.component.scss
+├── assets/                          // Статические файлы
+│   ├── images/
+│   └── styles/
+├── styles.scss                      // Глобальные стили
+└── index.html                       // Основной HTML файл

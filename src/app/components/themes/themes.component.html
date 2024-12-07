@@ -1,0 +1,4 @@
+@if ((homePage$ | async)?.slug === 'paris') {
+  <app-paris  [data]="(homePage$ | async)" [slug]="slug"></app-paris>
+}
+
