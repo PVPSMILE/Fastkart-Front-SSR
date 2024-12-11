@@ -1,20 +1,7 @@
 <div class="bg-effect">
-  <!-- Home Section Start -->
-  @if (data?.content?.home_banner) {
-    <section class="home-section pt-2">
-      <app-theme-home-banner [theme]="'paris'" [data]="data?.content?.home_banner"></app-theme-home-banner>
-    </section>
-  }
-  <!-- Home Section End -->
-
-  <!-- Banner Section Start -->
-  <section class="banner-section ratio_60">
-    <app-theme-banner [style]="'horizontal'" [banners]="data?.content?.featured_banners?.banners"></app-theme-banner>
-  </section>
-  <!-- Banner Section End -->
 
   <!-- Product Section Start -->
-  <section class="product-section">
+  <section class="product-section main-section">
     <div class="container-fluid-lg">
       <div class="row g-sm-4 g-3">
         <!-- Left Content Start -->
@@ -29,12 +16,13 @@
                 </app-theme-categories>
               }
               <!-- Sidebar Vertical Banner -->
-              <app-theme-banner
+              <!-- <app-theme-banner
                 [class]="'ratio_156 section-t-space'"
                 [style]="'vertical'"
                 [banners]="data?.content?.main_content?.sidebar?.left_side_banners?.banner_1">
-              </app-theme-banner>
+              </app-theme-banner> -->
               <!-- Sidebar Vertical Banner -->
+            
               <app-theme-banner
                 [class]="'ratio_medium section-t-space'" [style]="'vertical'"
                 [banners]="data?.content?.main_content?.sidebar?.left_side_banners?.banner_2">
@@ -60,6 +48,22 @@
         <!-- Right Content Start -->
         <div [class]="data?.content?.main_content?.sidebar?.status ? 'col-xxl-9 col-xl-8' : 'col-xxl-12 col-xl-12'">
 
+          @if (data?.content?.main_content?.section8_full_width_banner?.status) {
+            <div class="section-b-space section-t-space">
+              <div class="banner-contain hover-effect">
+                <app-image-link [image]="data?.content?.main_content?.section8_full_width_banner" [bgImage]="false">
+                </app-image-link>
+              </div>
+            </div>
+          }
+          @if (data?.content?.main_content?.section8_full_width_banner?.status) {
+            <div class="section-b-space section-t-space">
+              <div class="banner-contain hover-effect">
+                <app-image-link [image]="data?.content?.main_content?.section8_full_width_banner" [bgImage]="false">
+                </app-image-link>
+              </div>
+            </div>
+          }
           <!-- Top Save Today Section Start -->
           @if (data?.content?.main_content?.section1_products?.status &&
             data?.content?.main_content?.section1_products?.product_ids?.length || 0 >= 5) {
@@ -185,9 +189,11 @@
           <!-- Full Width Banner Section End -->
 
           <!-- Blogs Section Start -->
+    
           @if (data?.content?.main_content?.section9_featured_blogs?.status &&
             data?.content?.main_content?.section9_featured_blogs?.blog_ids?.length || 0 >= 3) {
             <app-title
+              
               [title]="data?.content?.main_content?.section9_featured_blogs?.title"
               [description]="data?.content?.main_content?.section9_featured_blogs?.description">
             </app-title>
@@ -198,6 +204,20 @@
       </div>
     </div>
   </section>
+
+   <!-- Home Section Start -->
+   @if (data?.content?.home_banner) {
+    <section class="home-section pt-2">
+      <app-theme-home-banner [theme]="'paris'" [data]="data?.content?.home_banner"></app-theme-home-banner>
+    </section>
+  }
+  <!-- Home Section End -->
+
+  <!-- Banner Section Start -->
+  <section class="banner-section ratio_60">
+    <app-theme-banner [style]="'horizontal'" [banners]="data?.content?.featured_banners?.banners"></app-theme-banner>
+  </section>
+  <!-- Banner Section End -->
   <!-- Product Section End -->
 
   <!-- Newsletter Section Start -->

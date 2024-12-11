@@ -40887,6 +40887,22 @@
       {
         "id": 29,
         "name": "Sweet Chocolate Treat",
+        "short_description": "Шоколадное лакомство с насыщенной ганашью, муссом и хрустящими крошками.",
+        "price": 2.00,
+        "weight": 200,
+        "quantity": 198,
+        "stock_status": "in_stock",
+        "rating_count": 3.4,
+        "reviews_count": 5,
+        "product_thumbnail": {
+          "original_url": "assets/images/data/product.png"
+        },
+        "categories": ["Завтрак", "Молочные продукты"],
+        "tags": ["Шоколад", "Лакомство"]
+      },
+      {
+        "id": 29,
+        "name": "Sweet Chocolate Treat",
         "short_description": "This decadent treat is made with the finest ingredients, including rich chocolate mousse, creamy chocolate ganache, and crunchy chocolate chips. It's topped with a chocolate candy bow for a touch of sweetness.",
         "description": "<p>The Sweet Chocolate Treat is a delectable snack that will satisfy your sweet tooth cravings. Indulge in the gooey texture and irresistible taste of this delightful treat.</p><p>With its rich and creamy chocolate filling, this snack is a perfect combination of sweetness and decadence. Each bite is a true delight, offering a burst of luscious flavors that will leave you wanting more.</p><p>The gooey consistency of the Sweet Chocolate Treat adds an extra level of enjoyment to your snacking experience. As you take a bite, the luxurious chocolate filling oozes out, creating a mouthwatering sensation that is hard to resist.</p><p>Made with the finest ingredients, this snack guarantees quality and deliciousness. It is crafted with care to ensure that every piece is packed with flavor and satisfying goodness. Whether you are enjoying it as an afternoon pick-me-up or as a dessert after a meal, this treat is sure to please your taste buds.</p><p>One of the great features of the Sweet Chocolate Treat is its portable and convenient packaging. It is individually wrapped, making it easy to take with you wherever you go. Whether you want to enjoy it at work, while on the go, or simply as a quick snack at home, this treat is ready to satisfy your cravings whenever you need it.</p><p>Not only is the Sweet Chocolate Treat a delightful snack for individuals, but it also makes a great addition to parties and gatherings. Its gooey and tasty nature is sure to be a hit among guests, making it a perfect treat to share and enjoy together.</p><p>Whether you are a chocolate lover or simply enjoy indulging in a scrumptious snack, the Sweet Chocolate Treat is a must-try. Its gooey and tasty features will captivate your senses and leave you craving for more. Once you experience the heavenly combination of rich chocolate and gooey texture, you won't be able to resist the allure of this delightful treat.</p><p>Indulge in the mouthwatering pleasure of the Sweet Chocolate Treat today and experience the ultimate snacking satisfaction. Treat yourself to this gooey and tasty delight and let your taste buds embark on a sweet and decadent journey. Give in to temptation and savor the irresistible goodness of this delectable treat. Grab a Sweet Chocolate Treat and enjoy a moment of pure bliss.</p>",
         "type": "simple",

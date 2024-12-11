@@ -1,0 +1,82 @@
+// import { Component, Input, Output, EventEmitter } from '@angular/core';
+// import { ActivatedRoute, Router } from '@angular/router';
+// import { Select } from '@ngxs/store';
+// import { Observable } from 'rxjs';
+
+// import { CategoryState } from '../../../state/category.state';
+// import { OwlOptions, CarouselModule } from 'ngx-owl-carousel-o';
+// import { Category, CategoryModel } from '../../../interface/category.interface';
+// import { ButtonComponent } from "../button/button.component";
+
+// @Component({
+//     selector: 'app-categories',
+//     templateUrl: './categories.component.html',
+//     styleUrls: ['./categories.component.scss'],
+//     standalone: true,
+//     imports: [ButtonComponent]
+// })
+// export class CategoriesComponent {
+
+//   @Select(CategoryState.categories) categories$: Observable<CategoryModel>;
+
+//   @Input() categoryIds: number[] = [];
+//   @Input() style: string = 'vertical';
+//   @Input() title?: string;
+//   @Input() image?: string;
+//   @Input() theme: string;
+//   @Input() bgImage: string;
+
+//   @Output() selectedCategory: EventEmitter<number> = new EventEmitter();
+
+//   public categories: Category[] = [];
+//   public selectedCategorySlug: string[] = [];
+
+//   constructor(private route: ActivatedRoute, private router: Router) {
+//     this.categories$.subscribe((res) => {
+//       if (Array.isArray(res?.data)) {
+//         this.categories = res.data;
+//       } else {
+//         console.error('Categories data is not an array:', res);
+//         this.categories = [];
+//       }
+//     });
+
+//     this.route.queryParams.subscribe(params => {
+//       this.selectedCategorySlug = params['category'] ? params['category'].split(',') : [];
+//     });
+//   }
+
+//   ngOnChanges() {
+//     if (this.categoryIds && this.categoryIds.length) {
+//       this.categories$.subscribe((res) => {
+//         if (Array.isArray(res?.data)) {
+//           this.categories = res.data.filter(category => this.categoryIds.includes(category.id));
+//         } else {
+//           console.error('Categories data is not an array:', res);
+//         }
+//       });
+//     }
+//   }
+
+//   selectCategory(id: number) {
+//     this.selectedCategory.emit(id);
+//   }
+
+//   redirectToCollection(slug: string) {
+//     const index = this.selectedCategorySlug.indexOf(slug);
+//     if (index === -1) {
+//       this.selectedCategorySlug.push(slug);
+//     } else {
+//       this.selectedCategorySlug.splice(index, 1);
+//     }
+
+//     this.router.navigate(['/collections'], {
+//       relativeTo: this.route,
+//       queryParams: {
+//         category: this.selectedCategorySlug.length ? this.selectedCategorySlug.join(',') : null
+//       },
+//       queryParamsHandling: 'merge',
+//       skipLocationChange: false
+//     });
+//   }
+// }

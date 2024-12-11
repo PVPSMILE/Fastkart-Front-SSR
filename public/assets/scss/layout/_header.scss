@@ -505,14 +505,14 @@ header {
   }
 
   .top-nav {
-    padding: 24px 0;
+    padding-top: 2px;
 
     @include mq-max(xl) {
-      padding: 24px 0 12px;
+      padding: 0px;
     }
 
     @include mq-max(md) {
-      padding: 14px 0 0;
+      padding: 0;
     }
 
     .navbar-top {
@@ -524,6 +524,7 @@ header {
       }
 
       @include mq-max(md) {
+        
         justify-content: space-between;
       }
 
@@ -538,11 +539,13 @@ header {
           @include pseudowh(
             $width: calc(120px + (162 - 120) * ((100vw - 320px) / (1920 - 320))),
             $height: auto
+            
           );
           object-fit: contain;
 
           @include mq-max(md) {
             margin: 0 auto;
+            border-radius: 30px;
           }
         }
 
@@ -556,8 +559,16 @@ header {
         display: flex;
         align-items: center;
 
-        @include mq-max(md) {
+        img{
           display: none;
+        }
+
+        @include mq-max(md) {
+          display: flex;
+          margin: 0 auto;
+          img{
+            display: block;
+          }
         }
 
         .location-box {
@@ -858,7 +869,7 @@ header {
                 }
 
                 i {
-                  color: $title-color;
+                  color: $white;
                   font-size: 24px;
                   cursor: pointer;
 
@@ -914,10 +925,10 @@ header {
               i {
                 line-height: 1;
                 font-size: 24px;
-                color: $content-color;
+                color: $white;
 
                 @include mq-max(4xl) {
-                  color: $title-color;
+                  color: $white;
                 }
               }
 
@@ -1716,8 +1727,13 @@ header {
       z-index: 3;
       position: relative;
       height: 0;
+      display: block;
+      
+      img.img-fluid.ng-star-inserted {
+        display: none;
+      }
     }
-
+    
     .header-nav-left {
       position: relative;
 
@@ -1725,7 +1741,7 @@ header {
         @include flex_common;
         padding: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)))
           calc(16px + (31 - 16) * ((100vw - 320px) / (1920 - 320)));
-        background: var(--theme-color);
+        background: #0d8844;
         color: $white;
         border-radius: 5px;
         border: none;
@@ -2308,7 +2324,7 @@ header {
 // mobile menu
 .mobile-menu {
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   padding: 10px;
   width: 100%;
   background-color: var(--theme-color);

@@ -40,6 +40,7 @@
 <!-- Category Style Horizontal -->
 @if (categories && categories.length && style == 'horizontal') {
 <div class="product-wrapper no-arrow" [class]="'category-slider'">
+  
   <owl-carousel-o [options]="sliderOption">
     @for (category of categories; track category) {
     <ng-template carouselSlide>

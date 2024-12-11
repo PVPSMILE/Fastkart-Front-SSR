@@ -25,3 +25,25 @@ export interface Category {
     updated_at?: string;
     deleted_at?: string;
 }
+// import { PaginateModel } from "./core.interface";
+// import { Attachment } from "./attachment.interface";
+
+// export interface CategoryModel extends PaginateModel {
+//     categories: Category[] | undefined;
+//     data: Category[];
+// }
+
+// export interface Category {
+//     id: number;
+//     type: string;
+//     name: string;
+//     slug: string;
+//     category_icon?: string; 
+//     subcategories?: Category[];
+//   }
+  
+// export interface Subcategory {
+//     id: number;
+//     name: string;
+//     subcategories?: Subcategory[]; // Опционально, на случай, если потребуется добавление подуровней.
+// }

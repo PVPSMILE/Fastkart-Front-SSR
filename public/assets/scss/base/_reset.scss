@@ -63,13 +63,16 @@ section,
 .section-t-space {
   padding-top: calc(30px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
 }
+.main-section{
+  padding-top: 0;
+}
 
 .section-b-space {
   padding-bottom: calc(30px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .container-fluid-lg {
-  padding: 0 calc(12px + (160 - 12) * ((100vw - 320px) / (1920 - 320)));
+  padding: 0 calc(12px + (112 - 12) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .container-fluid-md {

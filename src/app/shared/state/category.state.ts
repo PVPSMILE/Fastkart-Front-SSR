@@ -51,3 +51,49 @@ export class CategoryState {
   }
 
 }
+// import { Injectable } from "@angular/core";
+// import { Action, Selector, State, StateContext } from "@ngxs/store";
+// import { tap } from "rxjs/operators";
+// import { GetCategories } from "../action/category.action";
+// import { Category } from "../../shared/interface/category.interface";
+// import { CategoryService } from "../services/category.service";
+
+// // Define the state model
+// export class CategoryStateModel {
+//   categories: Category[] = [];
+// }
+
+// @State<CategoryStateModel>({
+//   name: "category",
+//   defaults: {
+//     categories: []
+//   }
+// })
+// @Injectable()
+// export class CategoryState {
+
+//   constructor(private categoryService: CategoryService) {}
+
+//   // Selector to get the categories from the state
+//   @Selector()
+//   static categories(state: CategoryStateModel): Category[] {
+//     return state.categories;
+//   }
+
+//   // Action to fetch categories
+//   @Action(GetCategories)
+//   getCategories(ctx: StateContext<CategoryStateModel>, action: any) {
+//     return this.categoryService.getCategories(action.payload).pipe(
+//       tap({
+//         next: (result) => {
+//           // Ensure result.categories is an array
+//           const categories = Array.isArray(result.categories) ? result.categories : [];
+//           ctx.patchState({ categories });
+//         },
+//         error: (err) => {
+//           console.error("Error fetching categories:", err);
+//         }
+//       })
+//     );
+//   }
+// }

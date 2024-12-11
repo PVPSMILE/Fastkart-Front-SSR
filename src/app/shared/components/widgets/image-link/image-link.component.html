@@ -1,5 +1,6 @@
 @if (image?.redirect_link?.link_type === 'external_url') {
   <a href="{{ image?.redirect_link?.link }}" target="_blank" class="banner-contain d-block h-100">
+
     @if (bgImage) {
       <div class="h-100 bg-size" [ngClass]="class" [ngStyle]="{'background-image': 'url(' + image?.image_url + ')'}"></div>
     }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { MobileMenu } from '../../../../../shared/interface/menu.interface';
+import { NgClass } from '@angular/common';
 
 
 @Component({
@@ -49,6 +50,27 @@ export class MobileMenuComponent {
       path: '/cart'
     }
   ]
+  isMenuVisible: boolean = false;
+
+  ngOnInit() {
+    this.checkMenuVisibility();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkMenuVisibility();
+  }
+
+  private checkMenuVisibility() {
+    const width = window.innerWidth;
+    this.isMenuVisible = width <= 768; // Например, для мобильных устройств
+    console.log(`Меню ${this.isMenuVisible ? 'появилось' : 'скрыто'}`);
+  }
+
+
+
+
+
 
   constructor(private router: Router){
     this.router.events.subscribe((event) => {

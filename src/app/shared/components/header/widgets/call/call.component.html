@@ -1,17 +1,25 @@
 <!-- Call Style Basic -->
 @if (style == 'basic') {
-  <a href="javascript:void(0)" class="delivery-login-box">
-    <div class="delivery-icon">
-      <i class="ri-customer-service-line"></i>
-    </div>
-    <div class="delivery-detail">
-      <h6>{{ '24_7_support_center' | translate }}</h6>
-      <h5>{{ data?.header?.support_number }}</h5>
-    </div>
-  </a>
+  <div >
+    <a href="javascript:void(0)" class="delivery-login-box" style="    display: flex
+    ;
+        align-items: center;
+        cursor: default;
+        font-size: 24px;
+        color: black;">
+      <div class="delivery-icon">
+        <i class="ri-customer-service-line"></i>
+      </div>
+      <div class="delivery-detail">
+        <h6>{{ '24_7_support_center' | translate }}</h6>
+        <h5>{{ data?.header?.support_number }}</h5>
+      </div>
+    </a>
+  </div>
+  
 }
 <!-- Call Style Classic -->
-@if (style == 'classic') {
+<!-- @if (style == 'classic') {
   <div class="support-box">
     <div class="support-image">
       <img src="assets/images/icon/support.png" class="img-fluid" alt="support">
@@ -21,11 +29,11 @@
       <h4>{{ '24_7_support_center' | translate }}</h4>
     </div>
   </div>
-}
+} -->
 <!-- Call Style Standard -->
-@if (style == 'standard') {
+<!-- @if (style == 'standard') {
   <div class="nav-number">
     <img src="assets/images/icon/music.png" class="img-fluid" alt="support number">
     <span>{{ data?.header?.support_number }}</span>
   </div>
-}
+} -->

@@ -13,7 +13,7 @@
 <app-footer [footer]="setLogo().footer"></app-footer>
 
 <!-- Widgets -->
-<app-recent-purchase-popup></app-recent-purchase-popup>
+<!-- <app-recent-purchase-popup></app-recent-purchase-popup> -->
 @if ((themeOption$ | async)?.general?.cart_style == 'cart_mini') {
   <app-sticky-cart></app-sticky-cart>
 }
