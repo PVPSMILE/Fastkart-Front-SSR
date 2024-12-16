@@ -6,6 +6,7 @@ export interface ThemeOption {
 }
 
 export interface Option {
+   filter: Option | null;
    logo: Logo;
    general: General;
    seo: SEO;

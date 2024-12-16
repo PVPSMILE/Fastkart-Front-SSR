@@ -1,193 +1,478 @@
-{
-  "categories": [
-    {
-      "id": 1,
-      "name": "Собакам",
-      "slug": "sobakam",
-      "subcategories": [
-        {
-          "id": 11,
-          "name": "Корм для собак",
-          "slug": "korm-dlya-sobak",
-          "category_icon": "data:image/png;base64,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",
-          "subcategories": [
-            { "id": 111, "name": "Сухий корм для собак", "slug": "sukhiy-korm-dlya-sobak" },
-            { "id": 112, "name": "Консерви для собак", "slug": "konservi-dlya-sobak" },
-            { "id": 113, "name": "Лікувальний корм для собак", "slug": "likuvalniy-korm-dlya-sobak" },
-            { "id": 114, "name": "Замінники молока", "slug": "zaminnyki-moloka" },
-            { "id": 115, "name": "Ласощі для собак", "slug": "lasoshi-dlya-sobak" },
-            { "id": 116, "name": "Миски та поїлки для собак", "slug": "miski-ta-poilki-dlya-sobak" }
-          ]
-        },
-        {
-          "id": 12,
-          "name": "Амуніція для собак",
-          "slug": "amunicziya-dlya-sobak",
-          "subcategories": [
-            { "id": 121, "name": "Нашийники для собак", "slug": "nashijnyky-dlya-sobak" },
-            { "id": 122, "name": "Намордники для собак", "slug": "namordnyky-dlya-sobak" },
-            { "id": 123, "name": "Повідці та ринговки", "slug": "povidczi-ta-ryngovky" },
-            { "id": 124, "name": "Шлейки для собак", "slug": "shlejky-dlya-sobak" },
-            { "id": 125, "name": "Повідці-рулетки", "slug": "povidczi-rulety" },
-            { "id": 126, "name": "Електронашийники", "slug": "elektronashijnyky" },
-            { "id": 127, "name": "Інша амуніція для собак", "slug": "insha-amunicziya-dlya-sobak" }
-          ]
-        },
-        {
-          "id": 13,
-          "name": "Одяг для собак",
-          "slug": "odyag-dlya-sobak",
-          "subcategories": [
-            { "id": 131, "name": "Дощовики", "slug": "doshhovyky" },
-            { "id": 132, "name": "Комбінезони", "slug": "kombinezony" },
-            { "id": 133, "name": "Куртки", "slug": "kurtky" },
-            { "id": 134, "name": "Костюми", "slug": "kostyumy" },
-            { "id": 135, "name": "Толстовки", "slug": "tolstovky" },
-            { "id": 136, "name": "Інший одяг", "slug": "inshyj-odyag" }
-          ]
-        },
-        {
-          "id": 14,
-          "name": "Гігієна будинку",
-          "slug": "gigiena-budynku",
-          "subcategories": [
-            { "id": 141, "name": "Туалети та лотки для собак", "slug": "tualety-ta-lotky-dlya-sobak" },
-            { "id": 142, "name": "Видалення запаху та плям", "slug": "vydalennya-zapakhu-ta-plyam" },
-            { "id": 143, "name": "Інструменти для прибирання шерсті", "slug": "instrumenty-dlya-prybyrannya-shersti" },
-            { "id": 144, "name": "Пелюшки, серветки та підгузники", "slug": "pelyushky-servetky-ta-pidguznyky" },
-            { "id": 145, "name": "Корекція поведінки (привчателі)", "slug": "korekczya-povedinky-pryvchateli" },
-            { "id": 146, "name": "Засоби для дезинфекції", "slug": "zasoby-dlya-dezynfekcziyi" }
-          ]
-        },
-        {
-          "id": 15,
-          "name": "Подорожі та відпочинок",
-          "slug": "podorozhi-ta-vidpochynok",
-          "subcategories": [
-            { "id": 151, "name": "Переноски для собак", "slug": "perenosky-dlya-sobak" },
-            { "id": 152, "name": "Манежі, будки та вольєри", "slug": "manezhi-budky-ta-volery" },
-            { "id": 153, "name": "Клітки та нейлонові бокси", "slug": "klitky-ta-nejlonovi-boksy" },
-            { "id": 154, "name": "Лежанки та спальні місця", "slug": "lezhanky-ta-spalni-mistsya" },
-            { "id": 155, "name": "Перегородки та врізні дверцята", "slug": "peregorodky-ta-vrizni-dverczata" },
-            { "id": 156, "name": "Іграшки для собак", "slug": "igrashky-dlya-sobak" },
-            { "id": 157, "name": "Автоаксесуари", "slug": "avtoaksesuary" },
-            { "id": 158, "name": "Охолоджуючі товари", "slug": "okholodzhuyuchi-tovary" }
-          ]
-        },
-        {
-          "id": 16,
-          "name": "Здоров'я та лікування собак",
-          "slug": "zdorovya-ta-likuvannya-sobak",
-          "subcategories": [
-            { "id": 161, "name": "Засоби від бліх та кліщів", "slug": "zasoby-vid-blih-ta-klishhiv" },
-            { "id": 162, "name": "Засоби від глистів для собак", "slug": "zasoby-vid-glystiv-dlya-sobak" },
-            { "id": 163, "name": "Вітаміни для собак", "slug": "vitaminy-dlya-sobak" },
-            { "id": 164, "name": "Ветпрепарати для собак", "slug": "vetpreparaty-dlya-sobak" }
-          ]
-        },
-        {
-          "id": 17,
-          "name": "Догляд та гігієна собак",
-          "slug": "doglyad-ta-gigiena-sobak",
-          "subcategories": [
-            { "id": 171, "name": "Інструменти по догляду", "slug": "instrumenty-po-doglyadu" },
-            { "id": 172, "name": "Шампуні та товари для купання", "slug": "shampuni-ta-tovary-dlya-kupannya" },
-            { "id": 173, "name": "Догляд за лапами", "slug": "doglyad-za-lapamy" },
-            { "id": 174, "name": "Догляд за очима", "slug": "doglyad-za-ochyma" },
-            { "id": 175, "name": "Догляд за вухами", "slug": "doglyad-za-vukhami" },
-            { "id": 176, "name": "Догляд за ротовою порожниною", "slug": "doglyad-za-rotovoyu-porozhnynoyu" },
-            { "id": 177, "name": "Догляд за шкірою та шерстю", "slug": "doglyad-za-shkiroyu-ta-sherstyu" }
-          ]
-        }
-      ]
+[
+  {
+    "id": 1,
+    "name": "Собакам",
+    "slug": "sobakam",
+    "type": "product",
+    "subcategories": [
+      {
+        "id": 11,
+        "name": "Корм для собак",
+        "slug": "korm-dlya-sobak",
+        "category_icon": {
+      "id": 276,
+      "collection_name": "attachment",
+      "name": "pet",
+      "file_name": "pet.svg",
+      "mime_type": "image/svg+xml",
+      "disk": "public",
+      "conversions_disk": "public",
+      "size": "4437",
+      "created_by_id": "1",
+      "created_at": "2023-08-26T12:19:23.000000Z",
+      "updated_at": "2023-08-26T12:19:23.000000Z",
+      "original_url": "assets/images/data/pet.svg"
     },
-    {
-      "id": 2,
-      "name": "Котам",
-      "slug": "cats",
-      "category_icon": "data:image/png;base64,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",
-      "subcategories": [
-        {
-          "id": 21,
-          "name": "Корм для кішок",
-          "slug": "cat-food",
-          "subcategories": [
-            { "id": 211, "name": "Сухий корм для котів", "slug": "dry-cat-food" },
-            { "id": 212, "name": "Консерви та паучі для котів", "slug": "canned-cat-food" },
-            { "id": 213, "name": "Лікувальний корм для котів", "slug": "medical-cat-food" },
-            { "id": 214, "name": "Замінники котячого молока", "slug": "cat-milk-replacers" },
-            { "id": 215, "name": "Ласощі для котів", "slug": "cat-treats" },
-            { "id": 216, "name": "Миски та поїлки для котів", "slug": "cat-bowls" }
-          ]
-        },
-        {
-          "id": 22,
-          "name": "Інструменти по догляду",
-          "slug": "cat-care-tools",
-          "subcategories": [
-            { "id": 221, "name": "Гребінці та щітки", "slug": "cat-combs" },
-            { "id": 222, "name": "Фурмінатори для котів", "slug": "cat-furminators" },
-            { "id": 223, "name": "Кігтерізи для котів", "slug": "cat-nail-clippers" },
-            { "id": 224, "name": "Ковтунорізи для котів", "slug": "cat-mat-removers" },
-            { "id": 225, "name": "Ножиці та тримери", "slug": "cat-scissors" },
-            { "id": 226, "name": "Інструменти для видалення кліщів", "slug": "cat-tick-removers" }
-          ]
-        },
-        {
-          "id": 23,
-          "name": "Гігієна будинку",
-          "slug": "cat-home-hygiene",
-          "subcategories": [
-            { "id": 231, "name": "Наповнювачі для туалетів", "slug": "cat-litter" },
-            { "id": 232, "name": "Туалети та лотки для котів", "slug": "cat-litter-boxes" },
-            { "id": 233, "name": "Видалення запаху та плям", "slug": "cat-odor-removers" },
-            { "id": 234, "name": "Інструменти для прибирання шерсті", "slug": "cat-hair-cleaning-tools" },
-            { "id": 235, "name": "Пелюшки та підгузники для котів", "slug": "cat-diapers" },
-            { "id": 236, "name": "Корекція поведінки (привчателі)", "slug": "cat-behavior-correction" }
-          ]
-        },
-        {
-          "id": 24,
-          "name": "Подорожі та відпочинок",
-          "slug": "cat-travel-leisure",
-          "subcategories": [
-            { "id": 241, "name": "Переноски для котів", "slug": "cat-carriers" },
-            { "id": 242, "name": "Лежанки та спальні місця", "slug": "cat-beds" },
-            { "id": 243, "name": "Іграшки для котів", "slug": "cat-toys" },
-            { "id": 244, "name": "Дряпки та ігрові комплекси", "slug": "cat-scratchers" },
-            { "id": 245, "name": "Нашийники та повідці для котів", "slug": "cat-collars" },
-            { "id": 246, "name": "Шлейки та повідці для котів", "slug": "cat-harnesses" },
-            { "id": 247, "name": "Перегородки та врізні дверцята", "slug": "cat-doors" },
-            { "id": 248, "name": "Одяг для котів", "slug": "cat-clothing" }
-          ]
-        },
-        {
-          "id": 25,
-          "name": "Здоров'я та лікування котів",
-          "slug": "cat-health-treatment",
-          "subcategories": [
-            { "id": 251, "name": "Засоби від бліх та кліщів", "slug": "cat-flea-tick-remedies" },
-            { "id": 252, "name": "Засоби від глистів для котів", "slug": "cat-dewormers" },
-            { "id": 253, "name": "Вітаміни для котів", "slug": "cat-vitamins" },
-            { "id": 254, "name": "Ветпрепарати для котів", "slug": "cat-vet-meds" }
-          ]
-        },
-        {
-          "id": 26,
-          "name": "Догляд та гігієна котів",
-          "slug": "cat-care-hygiene",
-          "subcategories": [
-            { "id": 261, "name": "Шампуні та товари для купання", "slug": "cat-shampoos" },
-            { "id": 262, "name": "Догляд за лапами", "slug": "cat-paw-care" },
-            { "id": 263, "name": "Догляд за очима", "slug": "cat-eye-care" },
-            { "id": 264, "name": "Догляд за вухами", "slug": "cat-ear-care" },
-            { "id": 265, "name": "Догляд за ротовою порожниною", "slug": "cat-oral-care" },
-            { "id": 266, "name": "Догляд за шкірою та шерстю", "slug": "cat-skin-fur-care" }
-          ]
-        }
-      ]
-    }
-  ]
+        "subcategories": [
+          { "id": 111, "name": "Сухий корм для собак", "slug": "sukhiy-korm-dlya-sobak" },
+          { "id": 112, "name": "Консерви для собак", "slug": "konservi-dlya-sobak" },
+          { "id": 113, "name": "Лікувальний корм для собак", "slug": "likuvalniy-korm-dlya-sobak" },
+          { "id": 114, "name": "Замінники молока", "slug": "zaminnyki-moloka" },
+          { "id": 115, "name": "Ласощі для собак", "slug": "lasoshi-dlya-sobak" },
+          { "id": 116, "name": "Миски та поїлки для собак", "slug": "miski-ta-poilki-dlya-sobak" }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Амуніція для собак",
+        "slug": "amunicziya-dlya-sobak",
+        "subcategories": [
+          { "id": 121, "name": "Нашийники для собак", "slug": "nashijnyky-dlya-sobak" },
+          { "id": 122, "name": "Намордники для собак", "slug": "namordnyky-dlya-sobak" },
+          { "id": 123, "name": "Повідці та ринговки", "slug": "povidczi-ta-ryngovky" },
+          { "id": 124, "name": "Шлейки для собак", "slug": "shlejky-dlya-sobak" },
+          { "id": 125, "name": "Повідці-рулетки", "slug": "povidczi-rulety" },
+          { "id": 126, "name": "Електронашийники", "slug": "elektronashijnyky" },
+          { "id": 127, "name": "Інша амуніція для собак", "slug": "insha-amunicziya-dlya-sobak" }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Одяг для собак",
+        "slug": "odyag-dlya-sobak",
+        "subcategories": [
+          { "id": 131, "name": "Дощовики", "slug": "doshhovyky" },
+          { "id": 132, "name": "Комбінезони", "slug": "kombinezony" },
+          { "id": 133, "name": "Куртки", "slug": "kurtky" },
+          { "id": 134, "name": "Костюми", "slug": "kostyumy" },
+          { "id": 135, "name": "Толстовки", "slug": "tolstovky" },
+          { "id": 136, "name": "Інший одяг", "slug": "inshyj-odyag" }
+        ]
+      },
+      {
+        "id": 14,
+        "name": "Гігієна будинку",
+        "slug": "gigiena-budynku",
+        "subcategories": [
+          { "id": 141, "name": "Туалети та лотки для собак", "slug": "tualety-ta-lotky-dlya-sobak" },
+          { "id": 142, "name": "Видалення запаху та плям", "slug": "vydalennya-zapakhu-ta-plyam" },
+          { "id": 143, "name": "Інструменти для прибирання шерсті", "slug": "instrumenty-dlya-prybyrannya-shersti" },
+          { "id": 144, "name": "Пелюшки, серветки та підгузники", "slug": "pelyushky-servetky-ta-pidguznyky" },
+          { "id": 145, "name": "Корекція поведінки (привчателі)", "slug": "korekczya-povedinky-pryvchateli" },
+          { "id": 146, "name": "Засоби для дезинфекції", "slug": "zasoby-dlya-dezynfekcziyi" }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Подорожі та відпочинок",
+        "slug": "podorozhi-ta-vidpochynok",
+        "subcategories": [
+          { "id": 151, "name": "Переноски для собак", "slug": "perenosky-dlya-sobak" },
+          { "id": 152, "name": "Манежі, будки та вольєри", "slug": "manezhi-budky-ta-volery" },
+          { "id": 153, "name": "Клітки та нейлонові бокси", "slug": "klitky-ta-nejlonovi-boksy" },
+          { "id": 154, "name": "Лежанки та спальні місця", "slug": "lezhanky-ta-spalni-mistsya" },
+          { "id": 155, "name": "Перегородки та врізні дверцята", "slug": "peregorodky-ta-vrizni-dverczata" },
+          { "id": 156, "name": "Іграшки для собак", "slug": "igrashky-dlya-sobak" },
+          { "id": 157, "name": "Автоаксесуари", "slug": "avtoaksesuary" },
+          { "id": 158, "name": "Охолоджуючі товари", "slug": "okholodzhuyuchi-tovary" }
+        ]
+      },
+      {
+        "id": 17,
+        "name": "Догляд та гігієна собак",
+        "slug": "doglyad-ta-gigiena-sobak",
+        "subcategories": [
+          { "id": 171, "name": "Інструменти по догляду", "slug": "instrumenty-po-doglyadu" },
+          { "id": 172, "name": "Шампуні та товари для купання", "slug": "shampuni-ta-tovary-dlya-kupannya" },
+          { "id": 173, "name": "Догляд за лапами", "slug": "doglyad-za-lapamy" },
+          { "id": 174, "name": "Догляд за очима", "slug": "doglyad-za-ochyma" },
+          { "id": 175, "name": "Догляд за вухами", "slug": "doglyad-za-vukhami" },
+          { "id": 176, "name": "Догляд за ротовою порожниною", "slug": "doglyad-za-rotovoyu-porozhnynoyu" },
+          { "id": 177, "name": "Догляд за шкірою та шерстю", "slug": "doglyad-za-shkiroyu-ta-sherstyu" }
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Здоров'я та лікування собак",
+        "slug": "zdorovya-ta-likuvannya-sobak",
+        "subcategories": [
+          { "id": 161, "name": "Засоби від бліх та кліщів", "slug": "zasoby-vid-blih-ta-klishhiv" },
+          { "id": 162, "name": "Засоби від глистів для собак", "slug": "zasoby-vid-glystiv-dlya-sobak" },
+          { "id": 163, "name": "Вітаміни для собак", "slug": "vitaminy-dlya-sobak" },
+          { "id": 164, "name": "Ветпрепарати для собак", "slug": "vetpreparaty-dlya-sobak" }
+        ]
+      }
+      
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Котам",
+    "slug": "cats",
+    "type": "product",
+    "category_icon": null,
 
+    "subcategories": [
+      {
+        "id": 21,
+        "name": "Корм для кішок",
+        "slug": "cat-food",
+        "subcategories": [
+          { "id": 211, "name": "Сухий корм для котів", "slug": "dry-cat-food" },
+          { "id": 212, "name": "Консерви та паучі для котів", "slug": "canned-cat-food" },
+          { "id": 213, "name": "Лікувальний корм для котів", "slug": "medical-cat-food" },
+          { "id": 214, "name": "Замінники котячого молока", "slug": "cat-milk-replacers" },
+          { "id": 215, "name": "Ласощі для котів", "slug": "cat-treats" },
+          { "id": 216, "name": "Миски та поїлки для котів", "slug": "cat-bowls" }
+        ]
+      },
+      {
+        "id": 22,
+        "name": "Інструменти по догляду",
+        "slug": "cat-care-tools",
+        "subcategories": [
+          { "id": 221, "name": "Гребінці та щітки", "slug": "cat-combs" },
+          { "id": 222, "name": "Фурмінатори для котів", "slug": "cat-furminators" },
+          { "id": 223, "name": "Кігтерізи для котів", "slug": "cat-nail-clippers" },
+          { "id": 224, "name": "Ковтунорізи для котів", "slug": "cat-mat-removers" },
+          { "id": 225, "name": "Ножиці та тримери", "slug": "cat-scissors" },
+          { "id": 226, "name": "Інструменти для видалення кліщів", "slug": "cat-tick-removers" }
+        ]
+      },
+      {
+        "id": 23,
+        "name": "Гігієна будинку",
+        "slug": "cat-home-hygiene",
+        "subcategories": [
+          { "id": 231, "name": "Наповнювачі для туалетів", "slug": "cat-litter" },
+          { "id": 232, "name": "Туалети та лотки для котів", "slug": "cat-litter-boxes" },
+          { "id": 233, "name": "Видалення запаху та плям", "slug": "cat-odor-removers" },
+          { "id": 234, "name": "Інструменти для прибирання шерсті", "slug": "cat-hair-cleaning-tools" },
+          { "id": 235, "name": "Пелюшки та підгузники для котів", "slug": "cat-diapers" },
+          { "id": 236, "name": "Корекція поведінки (привчателі)", "slug": "cat-behavior-correction" }
+        ]
+      },
+      {
+        "id": 24,
+        "name": "Подорожі та відпочинок",
+        "slug": "cat-travel-leisure",
+        "subcategories": [
+          { "id": 241, "name": "Переноски для котів", "slug": "cat-carriers" },
+          { "id": 242, "name": "Лежанки та спальні місця", "slug": "cat-beds" },
+          { "id": 243, "name": "Іграшки для котів", "slug": "cat-toys" },
+          { "id": 244, "name": "Дряпки та ігрові комплекси", "slug": "cat-scratchers" },
+          { "id": 245, "name": "Нашийники та повідці для котів", "slug": "cat-collars" },
+          { "id": 246, "name": "Шлейки та повідці для котів", "slug": "cat-harnesses" },
+          { "id": 247, "name": "Перегородки та врізні дверцята", "slug": "cat-doors" },
+          { "id": 248, "name": "Одяг для котів", "slug": "cat-clothing" }
+        ]
+      },
+      {
+        "id": 25,
+        "name": "Здоров'я та лікування котів",
+        "slug": "cat-health-treatment",
+        "subcategories": [
+          { "id": 251, "name": "Засоби від бліх та кліщів", "slug": "cat-flea-tick-remedies" },
+          { "id": 252, "name": "Засоби від глистів для котів", "slug": "cat-dewormers" },
+          { "id": 253, "name": "Вітаміни для котів", "slug": "cat-vitamins" },
+          { "id": 254, "name": "Ветпрепарати для котів", "slug": "cat-vet-meds" }
+        ]
+      },
+      {
+        "id": 26,
+        "name": "Догляд та гігієна котів",
+        "slug": "cat-care-hygiene",
+        "subcategories": [
+          { "id": 261, "name": "Шампуні та товари для купання", "slug": "cat-shampoos" },
+          { "id": 262, "name": "Догляд за лапами", "slug": "cat-paw-care" },
+          { "id": 263, "name": "Догляд за очима", "slug": "cat-eye-care" },
+          { "id": 264, "name": "Догляд за вухами", "slug": "cat-ear-care" },
+          { "id": 265, "name": "Догляд за ротовою порожниною", "slug": "cat-oral-care" },
+          { "id": 266, "name": "Догляд за шкірою та шерстю", "slug": "cat-skin-fur-care" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Рыбам",
+    "slug": "fish",
+    "type": "product",
+    "subcategories": [
+      {
+        "id": 31,
+        "name": "Аквариумы та підставки",
+        "slug": "aquariums-stands",
+        "subcategories": [
+          { "id": 311, "name": "Акваріуми", "slug": "aquariums" },
+          { "id": 312, "name": "Кришки для акваріумів", "slug": "aquarium-lids" },
+          { "id": 313, "name": "Підставки та тумби", "slug": "stands" },
+          { "id": 314, "name": "Піддони для аквариумів", "slug": "aquarium-trays" },
+          { "id": 315, "name": "Аксесуари для акваріумів", "slug": "aquarium-accessories" }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "Корм і вітаміни",
+        "slug": "fish-food-vitamins",
+        "subcategories": [
+          { "id": 321, "name": "Корм для щоденного використання", "slug": "daily-food" },
+          { "id": 322, "name": "Корм для посилення забарвлення", "slug": "color-enhancement-food" },
+          { "id": 323, "name": "Вітаміни для рибок", "slug": "fish-vitamins" },
+          { "id": 324, "name": "Спеціалізований корм", "slug": "specialized-food" },
+          { "id": 325, "name": "Корм для рибок на час відпустки", "slug": "vacation-food" },
+          { "id": 326, "name": "Корм для зростання рибок", "slug": "growth-food" }
+        ]
+      },
+      {
+        "id": 33,
+        "name": "Обладнання для акваріумів",
+        "slug": "aquarium-equipment",
+        "subcategories": [
+          { "id": 331, "name": "Освітлення для акваріумів", "slug": "aquarium-lighting" },
+          { "id": 332, "name": "Фільтри для акваріумів", "slug": "aquarium-filters" },
+          { "id": 333, "name": "Компресори, помпи та насоси", "slug": "aquarium-pumps" },
+          { "id": 334, "name": "Обігрів та охолодження", "slug": "heating-cooling" },
+          { "id": 335, "name": "Аксесуари для обладнання", "slug": "equipment-accessories" }
+        ]
+      },
+      {
+        "id": 34,
+        "name": "Грунт і декорації",
+        "slug": "aquarium-decor",
+        "subcategories": [
+          { "id": 341, "name": "Грунти для акваріума", "slug": "aquarium-substrate" },
+          { "id": 342, "name": "Декоративні рослини", "slug": "decorative-plants" },
+          { "id": 343, "name": "Штучні декорації", "slug": "artificial-decor" },
+          { "id": 344, "name": "Фони для акваріума", "slug": "aquarium-backgrounds" }
+        ]
+      },
+      {
+        "id": 35,
+        "name": "Хімія для акваріума",
+        "slug": "aquarium-chemicals",
+        "subcategories": [
+          { "id": 351, "name": "Боротьба з хворобами рибок", "slug": "fish-disease-treatment" },
+          { "id": 352, "name": "Боротьба з водоростями (альгіциди)", "slug": "algae-control" },
+          { "id": 353, "name": "Підготовка акваріумної води", "slug": "water-conditioning" },
+          { "id": 354, "name": "Тести для акваріумної води", "slug": "water-tests" },
+          { "id": 355, "name": "Добрива для рослин", "slug": "plant-fertilizers" }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "Ставки та фонтани",
+        "slug": "ponds-fountains",
+        "subcategories": [
+          { "id": 361, "name": "Корм для ставкових риб", "slug": "pond-fish-food" },
+          { "id": 362, "name": "Хімія для ставків", "slug": "pond-chemicals" },
+          { "id": 363, "name": "Обладнання для ставків", "slug": "pond-equipment" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Грызунам",
+    "slug": "rodents",
+    "type": "product",
+    "subcategories": [
+      {
+        "id": 41,
+        "name": "Годування гризунів",
+        "slug": "rodent-feeding",
+        "subcategories": [
+          { "id": 411, "name": "Корм для гризунів", "slug": "rodent-food" },
+          { "id": 412, "name": "Ласощі для гризунів", "slug": "rodent-treats" },
+          { "id": 413, "name": "Миски, поїлки, годівниці", "slug": "rodent-bowls" },
+          { "id": 414, "name": "Сіно для гризунів", "slug": "rodent-hay" }
+        ]
+      },
+      {
+        "id": 42,
+        "name": "Догляд і гігієна",
+        "slug": "rodent-care-hygiene",
+        "subcategories": [
+          { "id": 421, "name": "Туалети для гризунів", "slug": "rodent-toilets" },
+          { "id": 422, "name": "Наповнювачі для гризунів", "slug": "rodent-fillers" },
+          { "id": 423, "name": "Інструменти та обладнання по догляду", "slug": "rodent-care-tools" },
+          { "id": 424, "name": "Засоби по догляду", "slug": "rodent-care-products" }
+        ]
+      },
+      {
+        "id": 43,
+        "name": "Подорож та відпочинок",
+        "slug": "rodent-travel-leisure",
+        "subcategories": [
+          { "id": 431, "name": "Переноски для гризунів", "slug": "rodent-carriers" },
+          { "id": 432, "name": "Прогулянкові кулі", "slug": "rodent-balls" },
+          { "id": 433, "name": "Повідці та шлеї", "slug": "rodent-leashes" }
+        ]
+      },
+      {
+        "id": 44,
+        "name": "Клітки та аксесуари",
+        "slug": "rodent-cages-accessories",
+        "subcategories": [
+          { "id": 441, "name": "Клітки для гризунів", "slug": "rodent-cages" },
+          { "id": 442, "name": "Будиночки та тунелі", "slug": "rodent-houses" },
+          { "id": 443, "name": "Іграшки та аксесуари", "slug": "rodent-toys" }
+        ]
+      },
+      {
+        "id": 45,
+        "name": "Здоров'я та лікування",
+        "slug": "rodent-health-treatment",
+        "subcategories": [
+          { "id": 451, "name": "Засоби проти паразитів", "slug": "rodent-antiparasitic" },
+          { "id": 452, "name": "Вітаміни для гризунів", "slug": "rodent-vitamins" },
+          { "id": 453, "name": "Ветпрепарати для гризунів", "slug": "rodent-medicines" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Птахам",
+    "slug": "birds",
+    "type": "product",
+    "subcategories": [
+      {
+        "id": 51,
+        "name": "Годування птахів",
+        "slug": "bird-feeding",
+        "subcategories": [
+          { "id": 511, "name": "Корм для птахів", "slug": "bird-food" },
+          { "id": 512, "name": "Ласощі", "slug": "bird-treats" },
+          { "id": 513, "name": "Годівниці та поїлки", "slug": "bird-feeders" }
+        ]
+      },
+      {
+        "id": 52,
+        "name": "Догляд і гігієна",
+        "slug": "bird-care-hygiene",
+        "subcategories": [
+          { "id": 521, "name": "Засоби по догляду", "slug": "bird-care-products" },
+          { "id": 522, "name": "Купалки для птахів", "slug": "bird-baths" },
+          { "id": 523, "name": "Наповнювачі для кліток", "slug": "bird-cage-fillers" },
+          { "id": 524, "name": "Наповнювачі для гнізд", "slug": "bird-nest-fillers" }
+        ]
+      },
+      {
+        "id": 53,
+        "name": "Клітки та аксесуари",
+        "slug": "bird-cages-accessories",
+        "subcategories": [
+          { "id": 531, "name": "Клітки для птахів", "slug": "bird-cages" },
+          { "id": 532, "name": "Підставки для кліток", "slug": "bird-stands" },
+          { "id": 533, "name": "Будиночки та гнізда", "slug": "bird-houses-nests" },
+          { "id": 534, "name": "Іграшки та аксесуари", "slug": "bird-toys-accessories" }
+        ]
+      },
+      {
+        "id": 54,
+        "name": "Подорожі та відпочинок",
+        "slug": "bird-travel-leisure",
+        "subcategories": [
+          { "id": 541, "name": "Переноски для птахів", "slug": "bird-carriers" }
+        ]
+      },
+      {
+        "id": 55,
+        "name": "Здоров'я та лікування",
+        "slug": "bird-health-treatment",
+        "subcategories": [
+          { "id": 551, "name": "Засоби від паразитів", "slug": "bird-antiparasitic" },
+          { "id": 552, "name": "Вітаміни для птахів", "slug": "bird-vitamins" },
+          { "id": 553, "name": "Мінеральне каміння", "slug": "bird-mineral-stones" },
+          { "id": 554, "name": "Ветпрепарати для птахів", "slug": "bird-veterinary-meds" }
+        ]
+      },
+      {
+        "id": 56,
+        "name": "Товари для диких птахів",
+        "slug": "wild-bird-products",
+        "subcategories": [
+          { "id": 561, "name": "Будиночки (шпаківні)", "slug": "wild-bird-houses" },
+          { "id": 562, "name": "Вуличні годівниці", "slug": "wild-bird-feeders" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Рептиліям",
+    "slug": "reptiles",
+    "type": "product",
+    "subcategories": [
+      {
+        "id": 61,
+        "name": "Тераріуми та аксесуари",
+        "slug": "terrariums-accessories",
+        "subcategories": [
+          { "id": 611, "name": "Тераріуми", "slug": "terrariums" },
+          { "id": 612, "name": "Аксесуари для тераріумів", "slug": "terrarium-accessories" }
+        ]
+      },
+      {
+        "id": 62,
+        "name": "Грунт і декорації",
+        "slug": "substrates-decorations",
+        "subcategories": [
+          { "id": 621, "name": "Наповнювачі та грунт", "slug": "substrates-fillers" },
+          { "id": 622, "name": "Декор та укриття", "slug": "decor-hideouts" }
+        ]
+      },
+      {
+        "id": 63,
+        "name": "Годування",
+        "slug": "reptile-feeding",
+        "subcategories": [
+          { "id": 631, "name": "Корм для рептилій", "slug": "reptile-food" },
+          { "id": 632, "name": "Годівниці та поїлки", "slug": "reptile-feeders" }
+        ]
+      },
+      {
+        "id": 64,
+        "name": "Здоров'я та лікування",
+        "slug": "reptile-health-treatment",
+        "subcategories": [
+          { "id": 641, "name": "Антипаразитарні препарати", "slug": "antiparasitic-products" },
+          { "id": 642, "name": "Вітаміни та мінерали", "slug": "vitamins-minerals" },
+          { "id": 643, "name": "Ветеринарні препарати", "slug": "veterinary-meds" }
+        ]
+      },
+      {
+        "id": 65,
+        "name": "Обладнання для тераріумів",
+        "slug": "terrarium-equipment",
+        "subcategories": [
+          { "id": 651, "name": "Освітлення", "slug": "lighting" },
+          { "id": 652, "name": "Обігрів", "slug": "heating" },
+          { "id": 653, "name": "Аксесуари для обладнання", "slug": "equipment-accessories" }
+        ]
+      },
+      {
+        "id": 66,
+        "name": "Догляд і гігієна",
+        "slug": "reptile-care-hygiene",
+        "subcategories": [
+          { "id": 661, "name": "Хімія для тераріумів", "slug": "terrarium-chemicals" },
+          { "id": 662, "name": "Засоби по догляду", "slug": "care-products" }
+        ]
+      }
+    ]
+  }
+  
+]
 
-}

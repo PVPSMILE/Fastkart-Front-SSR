@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ import { CategoryState } from '../../../../../shared/state/category.state';
     imports: [RouterLink]
 })
 
-export class FooterCategoriesComponent {
+export class FooterCategoriesComponent implements OnInit {
 
   @Input() data: Option | null;
 
@@ -22,6 +22,9 @@ export class FooterCategoriesComponent {
 
   public categories: Category[];
 
+  ngOnInit(): void {
+    console.log('CCCategories:', this.categories);
+  }
   ngOnChanges(changes: SimpleChanges) {
     const ids = changes['data']?.currentValue?.footer?.footer_categories
     if (Array.isArray(ids)) {

@@ -6,6 +6,7 @@
         [ngClass]="[menu.type == 'sub' && menu.children ? 'nav-item dropdown' : 'nav-item', menu.megaMenu ? 'dropdown-mega' : '']"
         [class.new-nav-item]="menu.badge">
         @if (menu.type === 'sub') {
+      
           <a class="nav-link dropdown-toggle" (click)="toggle(menu)">
             {{ menu.title | translate }}
             @if (menu.badge) {
@@ -30,6 +31,7 @@
                 <div class="dropdown-column col-xl-3">
                   @for (link of megaMenu.children; track link) {
                     @if (link.type === 'sub') {
+                      <h1>sub</h1>
                       <h5 class="dropdown-header {{ link.class }}">{{ link.title | translate }}
                       </h5>
                     } @else {
@@ -83,29 +85,7 @@
                   </div>
                 </div>
               }
-              @if (menu.slider === 'blog') {
-                <div class="dropdown-column col-xl-9 d-xl-block d-none">
-                  <div class="row">
-                    @for (blog of blogs; track blog) {
-                      <div class="col-6">
-                        <div class="blog-box sticky-blog">
-                          <div class="blog-box-image">
-                            <a [routerLink]="['/blog/', blog?.slug]" class="blog-image">
-                              <img
-                                [src]="blog.blog_thumbnail ? blog?.blog_thumbnail?.original_url : 'assets/images/product.png'"
-                                class="img-fluid" [alt]="blog.title">
-                            </a>
-                          </div>
-                          <a [routerLink]="['/blog/', blog?.slug]" class="blog-detail" tabindex="0">
-                            <h6>{{ blog.created_at | date: 'dd MMM yyyy hh:mm:a' }}</h6>
-                            <h5>{{ blog.title }}</h5>
-                          </a>
-                        </div>
-                      </div>
-                    }
-                  </div>
-                </div>
-              }
+              
             </div>
           </div>
         }

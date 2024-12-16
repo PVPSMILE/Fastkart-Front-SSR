@@ -1,3 +1,73 @@
+/* Основной выпадающий список */
+.category-dropdown {
+    position: relative;
+    max-height: 400px; /* Ограничиваем высоту выпадающего списка */
+    overflow-y: auto; /* Прокрутка для основного списка */
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Список категорий */
+  .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Элемент категории */
+  .onhover-category-list {
+    position: relative;
+  }
+  
+  /* Подкатегории */
+  .subcategory-list {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Подкатегории отображаются справа */
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    display: none; /* По умолчанию скрыты */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Показываем подкатегории при наведении */
+  .onhover-category-list:hover .subcategory-list {
+    display: block;
+  }
+  
+  /* Добавляем стили для категории */
+  .category-name {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .category-name:hover {
+    background: #f8f8f8;
+  }
+  
+  /* Прокрутка для основного списка */
+  .category-list {
+    max-height: 300px; /* Ограничиваем высоту основного списка */
+    overflow-y: auto; /* Добавляем прокрутку */
+  }
+  
+  /* Отключаем прокрутку для подкатегорий */
+  .subcategory-list {
+    max-height: none;
+    overflow: visible;
+  }
+  
+  
 // import { Component, Input, Output, EventEmitter } from '@angular/core';
 // import { ActivatedRoute, Router } from '@angular/router';
 // import { Select } from '@ngxs/store';

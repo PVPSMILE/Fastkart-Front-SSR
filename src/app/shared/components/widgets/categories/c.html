@@ -1,0 +1,38 @@
+<div class="dropdown-menu dropdown-menu-2" [class.show]="menu.active">
+    <div class="row">
+      <!-- Первый блок меню -->
+      <div class="dropdown-column col-xl-3">
+        <h5 class="dropdown-header">Product Pages</h5>
+        <a class="dropdown-item" [routerLink]="'/product-thumbnail'" [queryParams]="{}">Product Thumbnail</a>
+        <a class="dropdown-item" [routerLink]="'/product-images'" [queryParams]="{}">Product Images</a>
+        <a class="dropdown-item" [routerLink]="'/product-slider'" [queryParams]="{}">Product Slider</a>
+        <a class="dropdown-item" [routerLink]="'/product-sticky'" [queryParams]="{}">Product Sticky</a>
+      </div>
+  
+      <!-- Второй блок меню -->
+      <div class="dropdown-column col-xl-3">
+        <h5 class="dropdown-header">Product Variants Style</h5>
+        <a class="dropdown-item" [routerLink]="'/variant-rectangle'" [queryParams]="{}">Variant Rectangle</a>
+        <a class="dropdown-item" [routerLink]="'/variant-circle'" [queryParams]="{}">Variant Circle <label class="menu-label new">New</label></a>
+        <a class="dropdown-item" [routerLink]="'/variant-image-swatch'" [queryParams]="{}">Variant Image Swatch</a>
+      </div>
+  
+      <!-- Рекламный баннер -->
+      <div class="dropdown-column col-xl-3 d-xl-block d-none">
+        <div class="menu-img-banner">
+          <a routerLink="/promo-offer" class="text-title">
+            <img src="assets/images/mega-menu.png" alt="Exclusive Grocery Offer" />
+          </a>
+        </div>
+      </div>
+  
+      <!-- Третий блок меню -->
+      <div class="dropdown-column col-xl-3">
+        <h5 class="dropdown-header">Product Features</h5>
+        <a class="dropdown-item" [routerLink]="'/bundle-cross-sale'" [queryParams]="{}">Bundle (Cross Sale)</a>
+        <a class="dropdown-item" [routerLink]="'/hot-stock-progress'" [queryParams]="{}">Hot Stock Progress <label class="menu-label new">New</label></a>
+        <a class="dropdown-item" [routerLink]="'/sold-out'" [queryParams]="{}">SOLD OUT</a>
+      </div>
+    </div>
+  </div>
+  

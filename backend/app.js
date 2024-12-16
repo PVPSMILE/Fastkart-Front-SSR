@@ -45,8 +45,17 @@ app.get("/places", async (req, res, next) => {
 
 app.get("/all-categories", async (req, res, next) => {
   try {
-    const categories = await readJSON("./data/categories.json");
-    res.status(200).json({ categories });
+    const data = await readJSON("./data/categories.json");
+    res.status(200).json({ data });
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/all-category", async (req, res, next) => {
+  try {
+    const data = await readJSON("./data/category.json");
+    res.status(200).json({ data });
   } catch (err) {
     next(err);
   }

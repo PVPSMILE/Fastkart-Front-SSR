@@ -537,7 +537,7 @@ header {
 
         img {
           @include pseudowh(
-            $width: calc(120px + (162 - 120) * ((100vw - 320px) / (1920 - 320))),
+            $width: calc(160px + (162 - 120) * ((100vw - 320px) / (1920 - 320))),
             $height: auto
             
           );
@@ -1857,7 +1857,7 @@ header {
           opacity: 1;
           visibility: visible;
           top: 63px;
-          max-height: 450px;
+          max-height: 650px;
           overflow: auto;
         }
       }
@@ -1869,7 +1869,7 @@ header {
         background-color: $white;
         box-shadow: 0 0 8px #ddd;
         z-index: 2;
-        width: 300px;
+        width: calc(250px + (320 - 300) * ((100vw - 320px) / (1920 - 320)));
         border-radius: 6px;
         opacity: 0;
         visibility: hidden;
@@ -1938,8 +1938,10 @@ header {
         }
 
         .category-list {
-          @include flex_wrap($dis: flex, $wrap: wrap, $gap: 25px);
-          padding: 20px 25px;
+          @include flex_wrap($dis: flex, $wrap: wrap,
+           $gap: 0px
+           );
+          padding: 10px 5px;
 
           li {
             display: block;

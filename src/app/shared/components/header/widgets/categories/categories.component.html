@@ -1,14 +1,80 @@
-<!-- All Categories -->
-<app-button [class]="'dropdown-category'" [id]="'all_categories_btn'" [spinner]="false">
-    <i class="ri-apps-line f-w-600 me-2"></i>
-    <span>{{ 'all_category' | translate }} </span>
+<!-- Кнопка для открытия выпадающего списка категорий -->
+<app-button 
+  [class]="'dropdown-category'" 
+  [id]="'all_categories_btn'" 
+  [spinner]="false">
+  <i class="ri-apps-line f-w-600 me-2"></i>
+  <span>{{ 'all_category' | translate }}</span>
 </app-button>
+
+<div class="modal-overlay" *ngIf="activeSubcategories"></div>
 <div class="category-dropdown">
-    <div class="category-title">
-        <h5>{{ 'categories' | translate }}</h5>
-        <app-button [type]="'button'" [class]="'btn p-0 close-button text-content'" [id]="'categories_btn'" [spinner]="false">
-            <i class="ri-close-line"></i>
-        </app-button>
-    </div>
-    <app-categories [style]="'dropdown'" [categoryIds]="data?.header?.category_ids!"></app-categories>
+  
+  <div class="category-title">
+    <h5>{{ 'categories' | translate }}</h5>
+  </div>
+
+  <!-- Список категорий -->
+  <ul class="category-list">
+    <ng-container *ngFor="let category of categories">
+      <li
+      class="onhover-category-list"
+      (mouseenter)="showSubcategories(category.subcategories, $event, category.slug)"
+      (mouseleave)="hideSubcategories()"
+      [ngStyle]="{
+        backgroundColor: activeCategorySlug === category.slug ? '#f0f8ff' : 'transparent',
+        fontWeight: activeCategorySlug === category.slug ? 'bold' : 'normal',
+        borderLeft: activeCategorySlug === category.slug ? '4px solid var(--theme-color)' : 'none'
+      }"
+      >
+        <a
+          href="javascript:void(0)"
+          (click)="redirectToCollection(category.slug)"
+          class="category-name"
+        >
+        <img [src]="category?.category_icon ? category?.category_icon?.original_url : 'assets/images/category.png'"
+        [alt]="category?.name">
+          {{ category.name }}
+        </a>
+
+        <!-- Подкатегории (2 уровень) -->
+         <!-- <div class="sub-help"></div> -->
+        <div
+          class="subcategory-modal"
+          *ngIf="activeSubcategories && category.subcategories === activeSubcategories"
+          [ngStyle]="{
+            top: ((subcategoryPosition?.top ?? 0) - 20) + 'px',
+            left: subcategoryPosition?.left + 'px'
+          }"
+
+          
+        >
+          <div class="subcategory-grid">
+            <ng-container *ngFor="let subcategory of activeSubcategories">
+              <div class="subcategory-column">
+                <a
+                  href="javascript:void(0)"
+                  (click)="redirectToCollection(subcategory.slug)"
+                >
+                  {{ subcategory.name }}
+                </a>
+
+                <!-- Подкатегории (3 уровень) -->
+                <ul *ngIf="subcategory.subcategories?.length" class="third-level-list">
+                  <li *ngFor="let subsub of subcategory.subcategories">
+                    <a
+                      href="javascript:void(0)"
+                      (click)="redirectToCollection(subsub.slug)"
+                    >
+                      {{ subsub.name }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
 </div>
