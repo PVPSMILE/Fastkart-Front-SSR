@@ -4,14 +4,13 @@ import * as data from  '../../../../shared/data/owl-carousel';
 import { AttributeService } from '../../../../shared/services/attribute.service';
 import { CollectionProductsComponent } from '../widgets/collection-products/collection-products.component';
 import { CollectionCategoriesComponent } from '../widgets/collection-categories/collection-categories.component';
-import { CollectionSubcategoriesComponent } from '../widgets/collection-subcategories/collection-subcategories.component';
 
 @Component({
     selector: 'app-collection-category-sidebar',
     templateUrl: './collection-category-sidebar.component.html',
     styleUrls: ['./collection-category-sidebar.component.scss'],
     standalone: true,
-    imports: [CollectionCategoriesComponent, CollectionProductsComponent, CollectionSubcategoriesComponent]
+    imports: [CollectionCategoriesComponent, CollectionProductsComponent]
 })
 export class CollectionCategorySidebarComponent {
 
