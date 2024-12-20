@@ -624,6 +624,7 @@
 
     .shop-left-sidebar {
       padding-right: calc(16px + (26 - 16) * ((100vw - 320px) / (1920 - 320)));
+      padding-top: 100px;
 
       body.rtl & {
         padding-right: unset;

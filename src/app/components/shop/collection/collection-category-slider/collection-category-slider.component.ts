@@ -5,13 +5,14 @@ import { AttributeService } from '../../../../shared/services/attribute.service'
 import { CollectionProductsComponent } from '../widgets/collection-products/collection-products.component';
 import { CollectionSidebarComponent } from '../widgets/sidebar/sidebar.component';
 import { CollectionCategoriesComponent } from '../widgets/collection-categories/collection-categories.component';
+import { CollectionSubcategoriesComponent } from '../widgets/collection-subcategories/collection-subcategories.component';
 
 @Component({
     selector: 'app-collection-category-slider',
     templateUrl: './collection-category-slider.component.html',
     styleUrls: ['./collection-category-slider.component.scss'],
     standalone: true,
-    imports: [CollectionCategoriesComponent, CollectionSidebarComponent, CollectionProductsComponent]
+    imports: [CollectionCategoriesComponent, CollectionSidebarComponent, CollectionProductsComponent, CollectionSubcategoriesComponent]
 })
 export class CollectionCategorySliderComponent {
 

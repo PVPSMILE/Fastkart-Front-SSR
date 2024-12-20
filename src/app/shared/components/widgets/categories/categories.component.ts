@@ -1,8 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions, CarouselModule } from 'ngx-owl-carousel-o';
 import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { Category, CategoryModel } from '../../../interface/category.interface';
 import { CategoryState } from '../../../state/category.state';
 import { TranslateModule } from '@ngx-translate/core';
@@ -10,15 +10,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
-    selector: 'app-categories',
-    templateUrl: './categories.component.html',
-    styleUrls: ['./categories.component.scss'],
-    standalone: true,
-    imports: [ButtonComponent, CarouselModule, ReactiveFormsModule, TranslateModule]
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss'],
+  standalone: true,
+  imports: [ButtonComponent, CarouselModule, ReactiveFormsModule, TranslateModule]
 })
-
-export class CategoriesComponent {
-
+export class CategoriesComponent implements OnChanges {
   @Select(CategoryState.category) category$: Observable<CategoryModel>;
 
   @Input() categoryIds: number[] = [];
@@ -32,42 +30,102 @@ export class CategoriesComponent {
 
   @Output() selectedCategory: EventEmitter<number> = new EventEmitter();
 
-  public categories: Category[];
+  public categories: Category[] = [];
   public selectedCategorySlug: string[] = [];
+  private _subcategories: Category[] = [];
 
-  constructor(private route: ActivatedRoute,
-    private router: Router) {
-    this.category$.subscribe(res => this.categories = res?.data?.filter(category => category.type == 'product'));
+  constructor(private route: ActivatedRoute, private router: Router) {
+    // Подписка на состояние категорий
+    this.category$
+      .subscribe(res => {
+        this.categories = res?.data?.filter(category => category.type === 'product') || [];;
+        this.updateSubcategories(); // Пересчитать подкатегории при изменении данных
+      });
+
+    // Подписка на изменения параметров маршрута
     this.route.queryParams.subscribe(params => {
-      this.selectedCategorySlug = params['category'] ? params['category'].split(',') : [];
+      const currentCategory = params['category'];
+      const parentCategory = params['parentCategory'];
+
+      this.selectedCategorySlug = parentCategory
+        ? [parentCategory, currentCategory]
+        : currentCategory
+        ? [currentCategory]
+        : [];
+
+      this.updateSubcategories(); // Пересчитать подкатегории при изменении маршрута
     });
   }
 
-  ngOnChanges() {
-    if(this.categoryIds && this.categoryIds.length) {
-      this.category$.subscribe(res => this.categories = res.data.filter(category => this.categoryIds?.includes(category.id)));
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedCategorySlug'] || changes['categories']) {
+      this.updateSubcategories(); // Обновить подкатегории, если изменились входные данные
     }
   }
 
-  selectCategory(id: number) {
-    this.selectedCategory.emit(id);
+  // Геттер для подкатегорий
+  get subcategories(): Category[] {
+    return this._subcategories;
   }
 
-  redirectToCollection(slug: string) {
-    let index = this.selectedCategorySlug.indexOf(slug);
-    if(index === -1)
-      this.selectedCategorySlug.push(slug);
-    else
-      this.selectedCategorySlug.splice(index,1);
+  // Обновление подкатегорий на основе выбранного пути
+  updateSubcategories(): void {
+    let currentCategories = this.categories;
+    for (const slug of this.selectedCategorySlug) {
+      const currentCategory = currentCategories.find(category => category.slug === slug);
+      if (currentCategory) {
+        if (currentCategory.subcategories?.length) {
+          currentCategories = currentCategory.subcategories;
+        } else {
+          console.warn(`Category found, but no subcategories for slug: ${slug}`);
+          this._subcategories = [];
+          return;
+        }
+      } else {
+        console.log(`Category not found for slug: ${slug}`);
+        this._subcategories = [];
+        return;
+      }
+    }
+    this._subcategories = currentCategories;
+  }
+
+  // Обработка клика по категории
+  handleCategoryClick(category: Category): void {
+    // Если категория уже выбрана, удаляем ее из пути
+    if (this.selectedCategorySlug.includes(category.slug)) {
+      this.selectedCategorySlug = this.selectedCategorySlug.slice(
+        0,
+        this.selectedCategorySlug.indexOf(category.slug) + 1
+      );
+    } else {
+      // Добавляем новую категорию в путь
+      this.selectedCategorySlug = [...this.selectedCategorySlug, category.slug];
+    }
+    this.redirect(); // Выполняем редирект
+  }
+
+  // Редирект с обновлением параметров маршрута
+  redirect(): void {
+    const currentSlug = this.selectedCategorySlug[this.selectedCategorySlug.length - 1]; // Последний slug
+    const parentSlugPath = this.selectedCategorySlug.slice(0, -1).join(','); // Родители
+
+    console.log('Redirecting to /collections with:', {
+      category: currentSlug,
+      parentCategory: parentSlugPath || null
+    });
 
     this.router.navigate(['/collections'], {
-      relativeTo: this.route,
       queryParams: {
-        category: this.selectedCategorySlug.length ? this.selectedCategorySlug.join(',') : null
+        category: currentSlug,
+        parentCategory: parentSlugPath || null
       },
-      queryParamsHandling: 'merge', // preserve the existing query params in the route
-      skipLocationChange: false  // do trigger navigation
+      queryParamsHandling: 'merge'
     });
   }
 
+  // Эмит события выбора категории
+  selectCategory(id: number): void {
+    this.selectedCategory.emit(id);
+  }
 }

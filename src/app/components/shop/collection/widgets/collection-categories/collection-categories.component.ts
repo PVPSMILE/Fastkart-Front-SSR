@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CategoriesComponent } from '../../../../../shared/components/widgets/categories/categories.component';
 
@@ -20,3 +20,4 @@ export class CollectionCategoriesComponent {
   constructor(){}
 
 }
+0

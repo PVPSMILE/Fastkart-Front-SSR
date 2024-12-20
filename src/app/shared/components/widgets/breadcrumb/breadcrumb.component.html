@@ -12,7 +12,15 @@
                 </li>
                 @for (item of breadcrumb.items; track item) {
                   <li class="breadcrumb-item" [class.active]="item?.active">
-                    {{ item?.label! | titleCase }}
+
+                    @if (item?.url?.includes('collections')) {
+                      <a style="cursor: pointer;" class="a" (click)="redirect(item?.url)">{{ item?.label | titleCase }}</a>
+                    }
+                    @else {
+                      <a [routerLink]="item?.url">{{ item?.label | titleCase }}</a>
+                    }
+                    
+                    <!-- {{ item?.label! | titleCase }} -->
                   </li>
                 }
               </ol>

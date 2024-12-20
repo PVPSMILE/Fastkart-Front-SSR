@@ -1861,7 +1861,7 @@
           border-radius: 6px;
           opacity: 0;
           visibility: hidden;
-          transition: all 0.3s ease-in-out;
+          // transition: all 0.3s ease-in-out;
   
           body.rtl & {
             left: unset;
@@ -3470,7 +3470,7 @@
         border-radius: 6px;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease-in-out;
+        // transition: all 0.3s ease-in-out;
   
         @include mq-max(md) {
           @include pseudowh(

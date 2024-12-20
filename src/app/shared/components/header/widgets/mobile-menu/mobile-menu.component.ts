@@ -64,13 +64,7 @@ export class MobileMenuComponent {
   private checkMenuVisibility() {
     const width = window.innerWidth;
     this.isMenuVisible = width <= 768; // Например, для мобильных устройств
-    console.log(`Меню ${this.isMenuVisible ? 'появилось' : 'скрыто'}`);
   }
-
-
-
-
-
 
   constructor(private router: Router){
     this.router.events.subscribe((event) => {

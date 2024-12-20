@@ -1856,7 +1856,7 @@ header {
         .category-dropdown {
           opacity: 1;
           visibility: visible;
-          top: 63px;
+          top: 52px;
           max-height: 650px;
           overflow: auto;
         }
@@ -1864,7 +1864,7 @@ header {
 
       .category-dropdown {
         position: absolute;
-        top: 72px;
+        top: 69px;
         left: 0;
         background-color: $white;
         box-shadow: 0 0 8px #ddd;
@@ -3469,13 +3469,13 @@ header {
       .category-dropdown {
         opacity: 1;
         visibility: visible;
-        top: 63px;
+        top: 52px;
       }
     }
 
     .category-dropdown {
       position: absolute;
-      top: 72px;
+      top: 69px;
       left: 0;
       background-color: $white;
       box-shadow: 0 0 8px #ddd;

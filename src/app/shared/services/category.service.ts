@@ -36,7 +36,6 @@ export class CategoryService {
     return this.http
       .get<CategoryModel>('http://localhost:3000/all-categories', { params: payload })
       .pipe(
-        tap(data => console.log('Data received:', data)), // Вывод данных в консоль
         catchError(err => {
           console.error('Error occurred:', err); // Логирование ошибок
           throw err; // Повторный выброс ошибки

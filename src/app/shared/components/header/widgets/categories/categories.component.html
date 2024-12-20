@@ -24,12 +24,13 @@
       [ngStyle]="{
         backgroundColor: activeCategorySlug === category.slug ? '#f0f8ff' : 'transparent',
         fontWeight: activeCategorySlug === category.slug ? 'bold' : 'normal',
-        borderLeft: activeCategorySlug === category.slug ? '4px solid var(--theme-color)' : 'none'
+        borderLeft: activeCategorySlug === category.slug ? '4px solid var(--theme-color)' : 'none',
+        display: activeCategorySlug === category.slug ? 'flex' : 'block'
       }"
       >
         <a
           href="javascript:void(0)"
-          (click)="redirectToCollection(category.slug)"
+          (click)="handleCategoryClick(category, 'category'); hideCategories();"
           class="category-name"
         >
         <img [src]="category?.category_icon ? category?.category_icon?.original_url : 'assets/images/category.png'"
@@ -54,7 +55,7 @@
               <div class="subcategory-column">
                 <a
                   href="javascript:void(0)"
-                  (click)="redirectToCollection(subcategory.slug)"
+                  (click)="handleCategoryClick(subcategory, 'subcategory')"
                 >
                   {{ subcategory.name }}
                 </a>
@@ -64,7 +65,7 @@
                   <li *ngFor="let subsub of subcategory.subcategories">
                     <a
                       href="javascript:void(0)"
-                      (click)="redirectToCollection(subsub.slug)"
+                      (click)="handleCategoryClick(subsub,'subsubcategory', subcategory.slug)"
                     >
                       {{ subsub.name }}
                     </a>

@@ -38,7 +38,7 @@ export class CollectionComponent {
 
   public breadcrumb: Breadcrumb = {
     title: "Collections",
-    items: [{ label: 'Collections', active: false }]
+    items: [{ label: 'Categories', active: true }]
   };
   public layout: string = 'collection_category_slider';
   public skeleton: boolean = true;
@@ -78,6 +78,7 @@ export class CollectionComponent {
         'attribute': params['attribute'] ? params['attribute'] : '',
       }
 
+      this.updateBreadcrumb(params['category'], params['parentCategory']);
       this.store.dispatch(new GetProducts(this.filter));
 
       // Params For Demo Purpose only
@@ -96,6 +97,50 @@ export class CollectionComponent {
 
     this.product$.subscribe(product => this.totalItems = product?.total);
   }
+
+  private updateBreadcrumb(category: string, parentCategory: string): void {
+
+    if (!category) {
+        this.breadcrumb.items = [{ label: 'Collections', active: true }];
+        return; // Выход из метода, если категория не задана
+    }
+    if (parentCategory) {
+        // Разделяем parentCategory по запятым и убираем лишние пробелы
+        const parentCategoriesArray = parentCategory.split(',').map(item => item.trim());
+        // Формируем хлебные крошки
+        if (parentCategoriesArray.length > 1) {
+          this.breadcrumb.items = [  
+              { label: 'Categories', url: '/collections', active: false },
+              { label: parentCategoriesArray[0], url: `/collections?category=${parentCategoriesArray[0]}`, active: false },
+              { label: parentCategoriesArray[1], url: `/collections?category=${parentCategoriesArray[1]}&parentCategory=${parentCategoriesArray[0]}`, active: true }
+          ];
+        }
+        else {
+          this.breadcrumb.items = [
+              { label: 'Categories', url: '/collections', active: false },
+              { label: parentCategoriesArray[0], url: `/collections?category=${parentCategoriesArray[0]}`, active: false },
+              
+          ];
+        }
+        this.breadcrumb.items.push(
+          { 
+            label: category,  
+            url: `/collections?category=${category}&parentCategory=${parentCategoriesArray.join(',')}`, 
+            active: true 
+        }
+        )
+        this.breadcrumb.title = category.charAt(0).toUpperCase() + category.slice(1);
+        return;
+    }
+
+    // Если parentCategory отсутствует
+    this.breadcrumb.items = [
+        { label: 'Categories', url: '/collections', active: false },
+        { label: category, url: `/collections?category=${category}`, active: true }
+    ];
+    this.breadcrumb.title = category.charAt(0).toUpperCase() + category.slice(1);
+  }
+  
 
 
 }

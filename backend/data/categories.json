@@ -2,27 +2,21 @@
   {
     "id": 1,
     "name": "Собакам",
-    "slug": "sobakam",
+    "slug": "pet-shop",
     "type": "product",
+    "category_icon": {
+      "id": 276,
+      "name": "dogs",
+      "mime_type": "image/svg+xml",
+      "size": "4437",
+      "original_url": "./assets/images/categories/dogs/dog_category.png"
+    },
     "subcategories": [
-      {
+      { 
         "id": 11,
         "name": "Корм для собак",
         "slug": "korm-dlya-sobak",
-        "category_icon": {
-      "id": 276,
-      "collection_name": "attachment",
-      "name": "pet",
-      "file_name": "pet.svg",
-      "mime_type": "image/svg+xml",
-      "disk": "public",
-      "conversions_disk": "public",
-      "size": "4437",
-      "created_by_id": "1",
-      "created_at": "2023-08-26T12:19:23.000000Z",
-      "updated_at": "2023-08-26T12:19:23.000000Z",
-      "original_url": "assets/images/data/pet.svg"
-    },
+        
         "subcategories": [
           { "id": 111, "name": "Сухий корм для собак", "slug": "sukhiy-korm-dlya-sobak" },
           { "id": 112, "name": "Консерви для собак", "slug": "konservi-dlya-sobak" },
@@ -120,8 +114,13 @@
     "name": "Котам",
     "slug": "cats",
     "type": "product",
-    "category_icon": null,
-
+    "category_icon": {
+      "id": 276,
+      "name": "cats",
+      "mime_type": "image/svg+xml",
+      "size": "4437",
+      "original_url": "./assets/images/categories/cats/cats_category.png"
+    },
     "subcategories": [
       {
         "id": 21,
@@ -208,6 +207,13 @@
     "name": "Рыбам",
     "slug": "fish",
     "type": "product",
+    "category_icon": {
+      "id": 276,
+      "name": "fish",
+      "mime_type": "image/svg+xml",
+      "size": "4437",
+      "original_url": "./assets/images/categories/fish/fish_category.png"
+    },
     "subcategories": [
       {
         "id": 31,
@@ -286,6 +292,13 @@
     "name": "Грызунам",
     "slug": "rodents",
     "type": "product",
+    "category_icon": {
+      "id": 276,
+      "name": "rodents",
+      "mime_type": "image/svg+xml",
+      "size": "4437",
+      "original_url": "./assets/images/categories/rodents/rodents_category.png"
+    },
     "subcategories": [
       {
         "id": 41,
@@ -346,6 +359,13 @@
     "name": "Птахам",
     "slug": "birds",
     "type": "product",
+    "category_icon": {
+      "id": 276,
+      "name": "birds",
+      "mime_type": "image/svg+xml",
+      "size": "4437",
+      "original_url": "./assets/images/categories/birds/birds_category.png"
+    },
     "subcategories": [
       {
         "id": 51,
@@ -414,6 +434,13 @@
     "name": "Рептиліям",
     "slug": "reptiles",
     "type": "product",
+    "category_icon": {
+      "id": 276,
+      "name": "reptiles",
+      "mime_type": "image/svg+xml",
+      "size": "4437",
+      "original_url": "./assets/images/categories/reptiles/reptiles_category.png"
+    },
     "subcategories": [
       {
         "id": 61,

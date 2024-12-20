@@ -8,6 +8,7 @@ import { ButtonComponent } from '../../../widgets/button/button.component';
 import { CategoriesComponent } from '../../../widgets/categories/categories.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgFor, NgIf, NgStyle } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-header-categories',
@@ -25,7 +26,7 @@ export class CategoriesBlockComponent implements OnInit {
   public activeCategorySlug: string | null = null; // Сохраняем slug активной категории
   public activeSubcategories: any[] | null = null; // Подкатегории текущей категории
   public subcategoryPosition: { top: number; left: number } | null = null; // Координаты подкатегорий
-  private hideTimeout: any; // Таймер для скрытия подкатегорий
+  public selectedCategorySlug: string[] = [];
 
   private toggleScroll(disable: boolean): void {
     if (disable) {
@@ -39,24 +40,27 @@ export class CategoriesBlockComponent implements OnInit {
     this.category$.subscribe((categoriesModel: CategoryModel) => {
       if (Array.isArray(categoriesModel?.data)) {
         this.categories = categoriesModel.data; // Обновляем список категорий
-        // console.log('Обновленные категории:', this.categories);
       } else {
         console.log('Категории не найдены.');
       }
     });
   }
 
+  constructor(private route: ActivatedRoute,
+      private router: Router) {
+      this.category$.subscribe(res => this.categories = res?.data?.filter(category => category.type == 'product'));
+      this.route.queryParams.subscribe(params => {
+        this.selectedCategorySlug = params['category'] ? params['category'].split(',') : [];
+      });
+    }
   // Показать подкатегории
   showSubcategories(subcategories: Category[] | undefined, event: MouseEvent, categorySlug: string): void {
-    this.subcategoryPosition === null
-    // console.log('Показать подкатегории:', subcategories);
     if (!subcategories || subcategories.length === 0) {
       this.activeSubcategories = null;
       this.toggleScroll(false); // Разрешаем скролл, если нет подкатегорий
       return;
     }
   
-    clearTimeout(this.hideTimeout);
     this.activeSubcategories = subcategories;
     this.activeCategorySlug = categorySlug;
   
@@ -73,26 +77,57 @@ export class CategoriesBlockComponent implements OnInit {
       leftOffset -= 100;
     }
 
-    if (this.subcategoryPosition === null) {
+    // if (this.subcategoryPosition === null) {
       this.subcategoryPosition = {
         top: rect.top,
         left: leftOffset,
       };
-    }
+    // }
       this.toggleScroll(true); // Запрещаем скролл при отображении подкатегорий
   }
   
   hideSubcategories(): void {
     document.body.style.overflow = '';// Возвращаем стандартное значение
-    this.hideTimeout = setTimeout(() => {
-      this.activeSubcategories = null;
-      this.activeCategorySlug = null;
-      this.subcategoryPosition = null
-    }, 0); 
+    this.activeSubcategories = null;
+    this.activeCategorySlug = null;
+      // this.subcategoryPosition = null
+  }
+  hideCategories(): void {
+    this.activeCategorySlug = null;
   }
   
-  // Логика для перехода
-  redirectToCollection(slug: string): void {
-    console.log('Переход к коллекции с идентификатором:', slug);
+  handleCategoryClick(category: Category, type_category: string, subcategory_slug?: string): void {
+     // Сохраняем slug выбранной категории
+    if (type_category == 'category') {
+      this.selectedCategorySlug = [category.slug];
+    }
+    else if (type_category == 'subcategory') {
+      const parentSlug = this.activeCategorySlug || ''; // Сохраняем slug родительской категории
+      this.selectedCategorySlug = [parentSlug, category.slug];
+    }
+    else if (type_category == 'subsubcategory') {
+      const parentSlug = `${this.activeCategorySlug},${subcategory_slug!}`; // Сохраняем slug родительской категории
+      this.selectedCategorySlug = [parentSlug, category.slug];
+    }
+    this.redirect(); // Выполняем редирект
+  }
+
+  // Редирект с обновлением параметров маршрута
+  redirect(): void {
+    const currentSlug = this.selectedCategorySlug[this.selectedCategorySlug.length - 1]; // Последний slug
+    const parentSlugPath = this.selectedCategorySlug.slice(0, -1).join(','); // Родители
+
+    console.log('Redirecting to /collections with:', {
+      category: currentSlug,
+      parentCategory: parentSlugPath || null
+    });
+
+    this.router.navigate(['/collections'], {
+      queryParams: {
+        category: currentSlug,
+        parentCategory: parentSlugPath || null
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 }

@@ -61,6 +61,15 @@ app.get("/all-category", async (req, res, next) => {
   }
 });
 
+app.get("/products", async (req, res, next) => {
+  try {
+    const data = await readJSON("./data/products.json");
+    res.status(200).json({ data });
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.get("/user-places", async (req, res, next) => {
   try {
     const places = await readJSON("./data/user-places.json");

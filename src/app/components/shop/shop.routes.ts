@@ -16,6 +16,7 @@ import { CollectionComponent } from './collection/collection.component';
 // Checkout
 import { ScrollPositionGuard } from '../../shared/guard/scroll.guard';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SubCollectionComponent } from './collection/sub-collection/sub-collection.component';
 
 export default [
   {
@@ -44,6 +45,11 @@ export default [
   {
     path: 'collections',
     component: CollectionComponent,
+    canActivate: [ScrollPositionGuard],
+  },
+  {
+    path: 'collections_2',
+    component: SubCollectionComponent,
     canActivate: [ScrollPositionGuard],
   },
   {
